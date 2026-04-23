@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://b0wwbf7cwgatm"]
+
+[ext_resource type="Script" uid="uid://dto05noarluu3" path="res://scripts/kill_de_dinnosaurs.gd" id="1_tc2ys"]
+[ext_resource type="Texture2D" uid="uid://cgm4u2fd74r8x" path="res://assets/obstacle.png" id="2_k5ab1"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_t4r1p"]
+radius = 50.32892
+
+[node name="kill de dinnosaurs" type="Node2D" unique_id=416357607]
+script = ExtResource("1_tc2ys")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1677617989]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_k5ab1")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=411055576]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=442109117]
+shape = SubResource("CircleShape2D_t4r1p")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=677639289]
+
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
